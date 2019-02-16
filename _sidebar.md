@@ -1,6 +1,7 @@
 <!-- prettier-ignore -->
 * User Guide
 
+	* [Installation](userGuide/installation)
 	* [Plugin Manager](userGuide/manager)
 	* [Using Plugins](userGuide/usingPlugins)
 	* [Updating Plugins](userGuide/update)

@@ -1,27 +1,4 @@
-<h1 align="center"> Figma Plus </h1>
-
-<p align="center"> Discover and install 3rd party plugins for Figma </p>
-
-<p align="center">
-<img width='380' src="images/managerModal.png" />
-</p>
-
-### Features
-
-- One-click installation
-- Seamless integration with Figma's UI
-- Install & manage your favorite plugins
-- Plugins are auto-updated to the latest version
-- Build plugins using our [API](api/ui)
-
-### Links
-
-- [Download page](https://figmaplus.com)
-- [Spectrum Community](https://spectrum.chat/figma-plus/)
-- [Github](https://github.com/figma-plus)
-- [Report issues](https://github.com/figma-plus/figma-plus/issues/new)
-
----
+# Introduction
 
 #### What is Figma Plus?
 

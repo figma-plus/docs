@@ -67,7 +67,7 @@ Some plugins have actions that are contextual to specific items, these actions a
 
 Plugins that require more interactions can open a modal to show additional UI.
 
-<img src="images/findAndReplace.jpg" width="400">
+<img src="images/findAndReplace.png" width="350">
 
 ## Custom UI
 
