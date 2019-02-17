@@ -41,12 +41,12 @@ We also review every plugin and their updates for security threats before approv
 
 We are well aware of the extension platform that Figma is working on, as announced in [this article](https://www.figma.com/blog/figma-series-c/#the-future). However we believe both systems can coexist as there will undoubtedly be limitations from the official implementation that only Figma Plus can unlock.
 
-An example would be any custom modifications to the Figma app UI, which can make for better plugin experiences but is very unlikely to be supported by the Figma team.
+An example would be any custom modifications to the Figma app UI, which can make for better plugin experiences but will very unlikely to be supported by the Figma team.
 
 #### If I start building plugins for Figma Plus, will I have to rebuild them when the official extensibility becomes available?
 
-The short answer is yes, but the migration process will likely be very easy.
+The short answer is yes, but the migration process will not be difficult.
 
-We cannot talk about what we know about the official extensibility platform, but our [developer API](api/scene) will follow the official extension API syntaxes as much as possible. Transitioning between the two API's will be simple and straightforward.
+We cannot talk about what we know about Figma's extensibility platform, but our [developer API](api/scene) will follow the official extension API syntaxes as much as possible. This ensures transitioning between the two API's will be simple and straightforward.
 
 We encourage developers to start building and experimenting with Figma Plus and decide whether to migrate to the official implementation when it becomes available.

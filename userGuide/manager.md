@@ -6,7 +6,7 @@ To open the plugin manager in the file browser, click on the Figma Plus icon nex
 
 <img src="images/pluginManagerInFileBrowser.png" width="400">
 
-To open the plugin manager inside an opened file, click on hamburger menu, then hover over **Figma Plus** and select **Manage Plugins**. You can also use the shortcut **Command+Shift+P** on Mac or **Control+Shift+P** on Windows.
+To open the plugin manager inside an opened file, click on hamburger menu, then hover over **Figma Plus** and select **Get Plugins**. You can also use the shortcut **Command+Shift+P** on Mac or **Control+Shift+P** on Windows.
 
 <img src="images/pluginManagerInFile.png" width="400">
 

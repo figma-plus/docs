@@ -75,7 +75,7 @@ To protect Figma Plus users from any malicious code. We must review your plugin'
 - Security threats such as sending user data to a server, including analytics scripts
 - Damages to users' documents
 
-To submit a request for approval, add a new entry in our [Master List](https://github.com/jachui/figma-plugin-manager/blob/gh-pages/masterList.json) and create a pull request.
+To submit a request for approval, add a new entry in our [Plugin Directory](https://github.com/figma-plus/plugin-directory/blob/gh-pages/plugins.json) and create a pull request.
 
 A plugin entry looks like this:
 
@@ -83,13 +83,29 @@ A plugin entry looks like this:
 {
 	"id": "my-awesome-plugin",
 	"github": "https://github.com/user/my-awesome-plugin",
-	"approvedVersion": "1.0.0"
+	"approvedVersion": "1.0.0",
+	"approvedCommit": "f0155878d5412ba439aa2bfa44eea5295dd9cf16"
 }
 ```
 
 - **id**: Unique ID of your plugin.
 - **github**: URL to your plugin's Github project.
 - **approvedVersion**: The tag (e.g. `1.0.0`) of your latest Github release.
+- **approvedCommit**: The commit hash of your latest Github release.
+
+<details><summary>Click to see how to get your commit hash of your Github release</summary>
+<p>
+
+Click on the hash button below your release tag.
+
+<img src="images/commitHash1.png" width="500">
+
+Find the string of commit hash here:
+
+<img src="images/commitHash2.png" width="700">
+
+</p>
+</details>
 
 Upon reviewing the plugin's code, we will merge the pull request so Figma Plus users can find and install your plugin in the plugin manager.
 
@@ -99,13 +115,14 @@ Updating a published plugin is a similar process to publishing a new plugin.
 
 Create a new release on Github with a new version tag (e.g. `1.0.1`), include some notes about your update in the descriptions.
 
-Then update your plugin's entry in the [Master List](https://github.com/jachui/figma-plugin-manager/blob/gh-pages/masterList.json) with an new `approvedVersion` and create a pull request.
+Then update your plugin's entry in the [Plugin Directory](https://github.com/figma-plus/plugin-directory/blob/gh-pages/plugins.json) with a new `approvedVersion` and `approvedCommit` then create a pull request.
 
 ```javascript
 {
 	"id": "my-awesome-plugin",
 	"github": "https://github.com/user/my-awesome-plugin",
-	"approvedVersion": "1.0.1"
+	"approvedVersion": "1.0.1",
+	"approvedCommit": "eaf05840f13b4f673354ddadc9d672659b579835"
 }
 ```
 

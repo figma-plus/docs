@@ -6,7 +6,7 @@ Because Figma Plus is an open platform, it is up to the plugin developer to desi
 
 All plugins are recommended to have at least an item shown in the hamburger -> **Figma Plus** menu, in addition to any context menu items they might support.
 
-<img src="images/pluginsMenu.jpg" width="400">
+<img src="images/pluginsMenu.png" width="400">
 
 ## Context Menus
 
@@ -25,9 +25,7 @@ Some plugins have actions that are contextual to specific items, these actions a
 
   <p>Selection menu is suitable for actions specific to the selected objects.</p>
 
-  <img src="images/selectionMenu.jpg" width="300">
-
-<img src="images/objectsPanelMenu.jpg" width="400">
+  <img src="images/selectionMenu.png" width="500">
 
 </details>
 

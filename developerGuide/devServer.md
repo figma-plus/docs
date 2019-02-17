@@ -28,7 +28,7 @@ If you are using a build tool, you should point to the build destination (e.g. `
 
 Select the **Developer** tab from the plugin manager, and enter information about your server and files.
 
-<img src="images/devServer.jpg" width="450">
+<img src="images/devServer.png" width="450">
 
 - **Port**: Port Number of your development server. Most servers default to `8080`.
 - **Javascript Files**: Add the paths to your `.js` files on your server. Note that the files are loaded in the displayed order, make sure to enter the paths in the order the files should load in.

@@ -6,7 +6,7 @@ Use these functions to set up your plugin and insert menu items for users to int
 
 Create an item in the **Figma Plus** menu.
 
-<img src="images/pluginsMenu.jpg" width="400">
+<img src="images/pluginsMenu.png" width="400">
 
 <!-- prettier-ignore -->
 ```javascript
@@ -115,8 +115,7 @@ figmaPlus.createContextMenuItem.Canvas(
 
 <details>
 	<summary><b>Selection</b></summary>
-	<img src="images/selectionMenu.jpg" width="300">
-	<img src="images/objectsPanelMenu.jpg" width="400">
+	<img src="images/selectionMenu.png" width="600">
 
 <!-- prettier-ignore -->
 ```javascript
@@ -431,7 +430,7 @@ figmaPlus.hideUI(modalTitle);
 
 Attach a hover tooltip to a DOM element in your UI.
 
-<img src="images/tooltip.jpg" width="400">
+<img src="images/tooltip.png" width="400">
 
 ```javascript
 figmaPlus.addTooltip(element, tooltipText, showAfterDelay);
