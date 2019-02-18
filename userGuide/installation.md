@@ -1,6 +1,6 @@
 # Installation
 
-Installing Figma Plus is as simple as clicking a button in our installer. However, you may encounter an error when trying to open the installer app for the first time. Follow these insturctions to bypass the error.
+Installing Figma Plus is as simple as clicking a button in our installer. However, you may encounter an error when trying to open the installer app for the first time. Follow these insturctions to get past the error.
 
 <img src="images/warningMac1.png" width="400">
 
@@ -43,3 +43,5 @@ Click the **Run anyway** button that appears at the bottom.
 In the installer window, locate your Figma app then click **Install**.
 
 <img src="images/installerWindows.png" width="350">
+
+?> Got Figma Plus installed? Learn how to [install plugins](userGuide/manager).

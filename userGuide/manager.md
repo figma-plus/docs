@@ -6,7 +6,7 @@ To open the plugin manager in the file browser, click on the Figma Plus icon nex
 
 <img src="images/pluginManagerInFileBrowser.png" width="400">
 
-To open the plugin manager inside an opened file, click on hamburger menu, then hover over **Figma Plus** and select **Get Plugins**. You can also use the shortcut **Command+Shift+P** on Mac or **Control+Shift+P** on Windows.
+To open the plugin manager inside an opened file, click on hamburger menu, then select **Figma Plus** > **Get Plugins**.
 
 <img src="images/pluginManagerInFile.png" width="400">
 
@@ -20,9 +20,9 @@ Clicking on a plugin will show its details.
 
 <img src="images/pluginDetails.png" width="450">
 
-To install the plugin, simply click **Install** in either the plugins list or the detail screen and reload your page.
+To install the plugin, simply click **Install** and reload your page.
 
-!> Installed plugins will run in the next page reload. If you are installing on the desktop app, make sure to reload **all opened tabs** to see changes, or simply restart the app to do that quickly.
+!> Installed plugins will run in the next page reload. If you have opened tabs on the desktop app, make sure to reload **all opened tabs** to see changes, or simply restart the app to do that quickly.
 
 ## Uninstalling Plugins
 
@@ -30,7 +30,7 @@ The **Installed** tab shows you a list of all your installed plugins.
 
 <img src="images/installedList.png" width="450">
 
-To uninstall a plugin, click into its detail screen and hit **Uninstall** at the top right and reload your page.
+To uninstall a plugin, click into its detail screen and hit **Uninstall** at the top right corner and reload your page.
 
 <img src="images/uninstall.png" width="450">
 

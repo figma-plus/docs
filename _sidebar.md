@@ -10,10 +10,12 @@
 
 	* [Getting Started](developerGuide/gettingStarted)
 	* [Development Server](developerGuide/devServer)
+	* [Plugin Boilerplates](developerGuide/boilerplates)
 	* [Publishing a Plugin](developerGuide/publish)
 
 * API Documentation
 
+	* [Introduction](api/introduction)
 	* [UI Functions](api/ui)
 	* [Scene](api/scene)
 	* [Events](api/events)

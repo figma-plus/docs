@@ -8,6 +8,8 @@ All plugins are recommended to have at least an item shown in the hamburger -> *
 
 <img src="images/pluginsMenu.png" width="400">
 
+!> Some plugin actions only show when the right conditions are met. For example, an action that applies to selected items will only show when you have selected at least one item in the canvas.
+
 ## Context Menus
 
 Some plugins have actions that are contextual to specific items, these actions are usually hosted inside the item's context menu. There are many types of context menus in Figma (Click to learn more):
@@ -23,7 +25,7 @@ Some plugins have actions that are contextual to specific items, these actions a
 <details>
 	<summary><b>Selection</b></summary>
 
-  <p>Selection menu is suitable for actions specific to the selected objects.</p>
+  <p>Selection menu is suitable for actions specific to the selected objects. Plugins are shown inside a Figma Plus submenu to make them more manageable.</p>
 
   <img src="images/selectionMenu.png" width="500">
 

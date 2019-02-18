@@ -11,9 +11,9 @@ Developer mode gives you a set of tools to connect your plugin code to Figma. To
 <details><summary>Enable developer mode in Desktop app</summary>
 <p>
 
-!> Turning on developer mode in your Figma desktop app will set the app's `webSecurity` setting to `false`. This is required to allow your local server to communicate with the Figma app. By default this shouldn't cause any security concerns if there is no malicious code installed in the app. However if you're uncomfortable with this change we recommend developing your plugin in Chrome.
+!> Turning on developer mode in your Figma desktop app will set the app's `webSecurity` setting to `false`. This is required for your local server to communicate with the Figma app. By default this shouldn't cause any security concerns if there is no malicious code installed in the app. However if you're uncomfortable with this change we recommend developing your plugin in Chrome.
 
-Open the **Figma Plus Installer** app, then click on the gear in the top right and select **Turn on Dev Mode**. This will prompt you to install the required code into your Figma app. If your app is opened, the installer will warn you before it closes the app.
+Open the **Figma Plus Installer** app, then click on the gear in the top right and select **Turn On Dev Mode**. This will prompt you to install the required code into your Figma app. If your app is opened, the installer will warn you before it closes the app.
 
 <img src="images/desktopDevMode.png" width="400">
 
@@ -64,4 +64,4 @@ Click to see a toast pop up at the bottom of your screen.
 
 Congratulations! You have created your first Figma Plus plugin!
 
-?> Ready for more? Check out our [API Documentation](api/ui#ui-functions) or learn how to run plugin code from local files using a [Development Server](developerGuide/devServer#development-server).
+?> Ready for more? Check out our [API Documentation](api/introduction) or learn how to run plugin code from local files using a [Development Server](developerGuide/devServer#development-server).

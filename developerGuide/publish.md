@@ -1,6 +1,6 @@
 # Publishing a Plugin
 
-If you are happy with your plugin and would like to share it to the Figma Plus community, follow this guide to publish your Plugin.
+When you are done building your plugin and would like to share it to the Figma Plus community, follow this guide to publish your plugin.
 
 ?> To ensure all published plugins are open-sourced and available for review, they must be hosted on public Github repos.
 
@@ -69,7 +69,7 @@ Add descriptions of your current release, this will show up in the update log in
 
 ## Request for Approval
 
-To protect Figma Plus users from any malicious code. We must review your plugin's code to check for any security threats. There are a few things we look for when approving a plugin release:
+To protect Figma Plus users from any malicious code. We must review your plugin's code to check for any security threats. Here are some things we look for when approving a plugin release:
 
 - Does the plugin work
 - Security threats such as sending user data to a server, including analytics scripts

@@ -1,6 +1,6 @@
 # Scene
 
-`figmaPlus.scene` contains a number of functions you can use to get or set properties of your `nodes` in the document.
+`figmaPlus.scene` contains a number of functions you can use to get or set properties of your `nodes` in the document. But first you may want to learn about the `node` object and its properties.
 
 ## Node
 
@@ -8,7 +8,7 @@ This is the type of objects returned by the `getNodeById`, `root`, `currentPage`
 
 Learn more about node types from [Figma's API documentation](https://www.figma.com/developers/docs#node-types).
 
-### Global properties
+#### Global properties
 
 Global properties exist on every `node`. All global properties are **read-only** unless otherwise specified.
 
@@ -33,7 +33,7 @@ characters: <String>		// Text content of a text node. Editable using node.charac
 
 ```
 
-### Properties
+#### Properties
 
 To get display properties like fill colors and font size, you will need to call `node.getProperties()` which returns a promise with the node object with properties. (Referred to as `newNode` below)
 

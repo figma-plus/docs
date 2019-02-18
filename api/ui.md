@@ -6,6 +6,8 @@ Use these functions to set up your plugin and insert menu items for users to int
 
 Create an item in the **Figma Plus** menu.
 
+We recommend all plugins to show their plugin actions here, in addition to any [contextual menu items](#createContextMenuItem) you may add.
+
 <img src="images/pluginsMenu.png" width="400">
 
 <!-- prettier-ignore -->

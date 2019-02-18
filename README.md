@@ -12,6 +12,7 @@
 - Seamless integration with Figma's UI
 - Install & manage your favorite plugins
 - Plugins are auto-updated to the latest version
+- Plugins can be set private to specific Teams or Orgs
 - Build plugins using our [API](api/ui)
 
 ### Links
@@ -25,7 +26,9 @@
 
 #### What is Figma Plus?
 
-Figma Plus is an **unofficial** plugin platform for Figma. We hope to create a friendly community of users and developers building extensions to enhance the Figma experience.
+Figma Plus is an **unofficial** plugin platform for Figma.
+
+We hope to create a friendly community of users and developers building extensions to enhance the Figma experience.
 
 #### Is it safe to run Figma Plus?
 
