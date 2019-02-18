@@ -69,7 +69,7 @@ node.getAllDescendents();
 
 ### exportAsImageAsync
 
-Run this function on a node to render it as an image. This returns a Promise of an object with properties `getBlob`, `getBytes` and `getUrl` which are convertions of the rendered image in different formats.
+Run this function on a node to render it as an image. This returns a Promise of an object with functions `getBlob()`, `getBytes()` and `getUrl()` which return the rendered image in different formats.
 
 ```javascript
 node.exportAsImageAsync(options);
@@ -87,7 +87,7 @@ node.exportAsImageAsync({ scale: 2 });
 // Example code for showing an image of the selected node in a modal:
 async function displayNodeAsImage() {
 	const node = figmaPlus.scene.selection[0];
-	const url = await node.exportAsImageAsync().then(image => image.getUrl);
+	const url = await node.exportAsImageAsync().then(image => image.getUrl());
 	const image = await new Promise((resolve, reject) => {
 		const i = new Image();
 		i.onload = () => resolve(i);
