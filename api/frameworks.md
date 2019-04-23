@@ -17,26 +17,26 @@ figmaPlus.ReactDOM;
 <!-- prettier-ignore -->
 ```javascript
 // Example code for rendering a button inside a modal without JSX:
-figmaPlus.showUI(
-	'Hello world',
-	(modalElement) => {
-		const button = figmaPlus.React.createElement(
+figmaPlus.showUI({
+	title: 'React Component Demo',
+	reactComponent: function Button() {
+		return (figmaPlus.React.createElement(
 			"button",
-			{ class: "button primary"},
-			"Button"
+			{ onClick: () => alert('You clicked me!') },
+			"Click me")
 		);
-		figmaPlus.ReactDOM.render(button, modalElement);
 	}
-);
+});
 
 // Example code for rendering a button inside a modal with JSX:
-figmaPlus.showUI(
-	'Hello world',
-	(modalElement) => {
-		const button = <button class="button primary">Button</button>;
-		figmaPlus.ReactDOM.render(button, modalElement);
+figmaPlus.showUI({
+	title: 'React Component Demo',
+	reactComponent: function Button() {
+		return (
+			<button onClick={() => alert('You clicked me!')}>Click me</button>
+		);
 	}
-);
+});
 ```
 
 ## Vue
@@ -51,25 +51,11 @@ figmaPlus.Vue;
 
 <!-- prettier-ignore -->
 ```javascript
-// Example code for rendering a button inside a modal using template literals:
-figmaPlus.showUI(
-	'Hello world',
-	(modalElement) => {
-		new figmaPlus.Vue({
-			el: modalElement,
-			template: `<button class="button primary">Button</button>`
-		})
-	}
-);
-
-// Example code for rendering a component inside a modal:
-figmaPlus.showUI(
-	'Hello world',
-	(modalElement) => {
-		new figmaPlus.Vue({
-			el: modalElement,
-			render: h => h(component)
-		})
-	}
-);
+// Example code for rendering a button inside a modal:
+figmaPlus.showUI({
+	title: 'Vue Component Demo',
+	vueComponent: figmaPlus.Vue.component('demo-button', {
+		template: `<button @click="alert('You clicked me!')">Click me</button>`
+	})
+});
 ```

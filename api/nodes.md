@@ -1,12 +1,12 @@
-# Scene
+# Nodes
 
-`figmaPlus.scene` contains a number of functions you can use to get or set properties of your `nodes` in the document. But first you may want to learn about the `node` object and its properties.
+Nodes are elements in your current Figma document, such as pages, frames and layers. You can get node objects by their ID using the `figmaPlus.getNodeById` function, or by browsing through your document's node tree using `figmaPlus.root`.
 
-## Node
+## Node object
 
-This is the type of objects returned by the `getNodeById`, `root`, `currentPage` and `selection` functions. Each `node` corresponds to an element in your opened document, which may include the document, pages, frames/groups, layers, etc.
+The Node object contains information about your node, such as its ID, name and type.
 
-Learn more about node types from [Figma's API documentation](https://www.figma.com/developers/docs#node-types).
+You can learn more about node types from [Figma's API documentation](https://www.figma.com/developers/docs#node-types).
 
 #### Global properties
 
@@ -67,55 +67,56 @@ Run this function on a node to get an array of all descendents (children, grandc
 node.getAllDescendents();
 ```
 
-### exportAsImageAsync
+### export
 
-Run this function on a node to render it as an image. This returns a Promise of an object with functions `getBlob()`, `getBytes()` and `getUrl()` which return the rendered image in different formats.
+Run this function on a node to render it as an image. This returns a Promise of an object with `blob`, `buffer` and `url` which is the output of the image in different formats.
 
 ```javascript
-node.exportAsImageAsync(options);
+node.export(options);
 ```
 
-- **options (optional)** (`Object`): An object used to set the `scale` parameter. Default: `{ scale: 1 }`
+- **options (optional)** (`Object`): An object used to set the `format` and `contentsOnly` parameter. Currently only PNG format is supported. Default: `{ format: "PNG", contentsOnly: true }`
 
 ```javascript
-// Render node in its original size:
-node.exportAsImageAsync();
+// Render a contents-only image of a node in PNG format :
+node.export();
 
-// Render node in 2x its original size:
-node.exportAsImageAsync({ scale: 2 });
+// Render a non-contents-only image of a node in PNG format :
+node.export({ format: 'PNG', contentsOnly: false });
 
 // Example code for showing an image of the selected node in a modal:
 async function displayNodeAsImage() {
-	const node = figmaPlus.scene.selection[0];
-	const url = await node.exportAsImageAsync().then(image => image.getUrl());
+	const node = figmaPlus.currentPage.selection[0];
+	const url = await node.export().then(image => image.url);
 	const image = await new Promise((resolve, reject) => {
 		const i = new Image();
 		i.onload = () => resolve(i);
 		i.onerror = () => reject();
 		i.src = url;
 	});
-	figmaPlus.showUI(
-		node.name,
-		modalElement => {
-			modalElement.appendChild(image);
+	figmaPlus.showUI({
+		title: node.name,
+		onMount: modalContent => {
+			modalContent.appendChild(image);
 		},
-		image.width,
-		image.height
-	);
+		width: image.width,
+		height: image.height
+	});
 }
+
 displayNodeAsImage();
 ```
 
 ---
 
-# Functions
+# Functions to get Nodes
 
 ## getNodeById
 
 Look up a node by its ID string.
 
 ```javascript
-figmaPlus.scene.getNodeById(nodeId);
+figmaPlus.getNodeById(nodeId);
 ```
 
 - **nodeId** (`String`): A node's ID number, e.g. "1:23"
@@ -125,7 +126,7 @@ figmaPlus.scene.getNodeById(nodeId);
 Get the document node. Each child is a page.
 
 ```javascript
-figmaPlus.scene.root();
+figmaPlus.root;
 ```
 
 ## currentPage
@@ -133,7 +134,7 @@ figmaPlus.scene.root();
 Get the current page node. Everything on the current page can be found under this node.
 
 ```javascript
-figmaPlus.scene.currentPage();
+figmaPlus.currentPage;
 ```
 
 ## selection
@@ -143,16 +144,16 @@ You can also set your selection by passing an array of node objects or node ID's
 
 ```javascript
 // Get selection
-figmaPlus.scene.selection();
+figmaPlus.currentPage.selection;
 
 // Set selection by an array of node objects
-figmaPlus.scene.selection([node]);
+figmaPlus.currentPage.selection = [node];
 
 // Set selection by an array of node ID's
-figmaPlus.scene.selection([nodeId]);
+figmaPlus.currentPage.selection = [nodeId];
 ```
 
-- **node** (`Node`): See [Node](#Node) object above.
+- **node** (`Node`): See [Node object](#node-object) above.
 - **nodeId** (`String`): A node's ID number, e.g. "1:23"
 
 ## centerOnPoint
@@ -182,7 +183,7 @@ figmaPlus.scene.panToNode(node);
 figmaPlus.scene.panToNode(nodeId);
 ```
 
-- **node** (`Node`): See [Node](#Node) object above.
+- **node** (`Node`): See [Node object](#node-object) above.
 - **nodeId** (`String`): A node's ID number, e.g. "1:23"
 
 ## zoomOnNodes
@@ -197,5 +198,5 @@ figmaPlus.scene.zoomOnNodes([node]);
 figmaPlus.scene.zoomOnNodes([nodeId]);
 ```
 
-- **node** (`Node`): See [Node](#Node) object above.
+- **node** (`Node`): See [Node object](#node-object) above.
 - **nodeId** (`String`): A node's ID number, e.g. "1:23"

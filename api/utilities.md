@@ -1,6 +1,6 @@
 # Utilities
 
-The API also includes a number of utility functions to help you in your plugin development.
+The API also includes a number of utility functions and properties to help you in your plugin development.
 
 ## toggleShowNodeId
 
@@ -10,50 +10,59 @@ Toggle showing node ID's in the layers panel.
 figmaPlus.toggleShowNodeId();
 ```
 
+## styles
+
+Get an array of local and published styles.
+
+```javascript
+figmaPlus.styles.local;
+figmaPlus.styles.published;
+```
+
 ## isDesktop
 
 Checks if Figma is running on the Desktop app. Returns a `boolean`.
 
 ```javascript
-figmaPlus.isDesktop();
+figmaPlus.isDesktop;
 ```
 
-## getFileKey
+## fileKey
 
 Get the current opened file's unique key.
 
 ```javascript
-figmaPlus.getFileKey();
+figmaPlus.fileKey;
 ```
 
-## getOrgs
+## orgs
 
 Get an array of Orgs related to your account.
 
 ```javascript
-figmaPlus.getOrgs();
+figmaPlus.orgs;
 ```
 
-## getMyOrgId
+## myOrg
 
 Get the ID of your current Org.
 
 ```javascript
-figmaPlus.getMyOrgId();
+figmaPlus.myOrg;
 ```
 
-## getTeams
+## teams
 
 Get an array of teams related to your account.
 
 ```javascript
-figmaPlus.getTeams();
+figmaPlus.teams;
 ```
 
-## getMyTeams
+## myTeams
 
 Get an array of teams you are in.
 
 ```javascript
-figmaPlus.getMyTeams();
+figmaPlus.myTeams;
 ```

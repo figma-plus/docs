@@ -1,37 +1,35 @@
 # UI Functions
 
-Use these functions to set up your plugin and insert menu items for users to interact with. Plugins are recommended to have at least a Plugins menu item, and optionally add a context menu item and/or keyboard shortcut if necessary.
+Use these functions to set up your plugin and insert menu items for users to interact with.
 
-## createPluginsMenuItem
+## addCommand
 
-Create an item in the **Figma Plus** menu.
-
-We recommend all plugins to show their plugin actions here, in addition to any [contextual menu items](#createContextMenuItem) you may add.
+Create a command in the **Figma Plus** menu.
 
 <img src="images/pluginsMenu.png" width="400">
 
 <!-- prettier-ignore -->
 ```javascript
-figmaPlus.createPluginsMenuItem(
-	itemLabel,
-	triggerFunction,
-	condition,
+figmaPlus.addCommand({
+	label,
+	action,
 	shortcut,
-	submenuItems
-);
+	condition,
+	submenu,
+	showInCanvasMenu,
+	showInSelectionMenu,
+	hideInMainMenu
+});
 ```
 
-- **itemLabel** (`String`): The label of the menu item to be added.
-- **triggerFunction** (`Function`): The function to trigger when the menu item is clicked. If there are sub-menus, this trigger function will not be runned on click.
-- **condition (optional)** (`Function`): Condition that needs to pass for the item to show in the menu. Menu item will only show when this condition function returns `true`. Pass `null` if no condition is needed.
-- **shortcut (optional)** (`Shortcut`): Pass in a keyboard shortcut object to show it alongside the label. Remember to use `createKeyboardShortcut` to actually attach the command to a keyboard shortcut event. Pass `null` if no shortcut is needed to be displayed.
-
-<details><summary>Click to see the Shortcut object format</summary>
-<p>
+- **label** (`String`): The label of the command.
+- **action** (`Function`): Action to trigger when the command is clicked. If there are sub-menus, this action will not be runned on click.
+- **shortcut (optional)** (`Shortcut`): An object defining the keyboard shortcut for both Mac and Windows.
 
 ```
+// Shortcut object format
 {
-	mac : {
+	mac: {
 		control: <boolean>,
 		option: <boolean>,
 		shift: <boolean>,
@@ -47,262 +45,87 @@ figmaPlus.createPluginsMenuItem(
 }
 ```
 
-</p>
-</details>
+- **condition (optional)** (`Function`): Condition function that determines whether the command is shown in the menu. Commands will only show when the condition function returns `true`.
 
-- **submenuItems (optional)** (`Array`): Pass in an array of `submenuItem` objects to create sub-menu items branching off the menu item. Pass `null` if no sub-menu is needed.
-
-<details><summary>Click to see the submenuItems object format</summary>
-<p>
+* **submenu (optional)** (`Array`): An array of `Command` objects to show a sub-menu with more commands.
 
 ```
+// Command object format
 {
-	itemLabel: <String>,
-	triggerFunction: <Function>,
-	condition: <Function> (optional),
-	shortcut: <Shortcut> (optional)
+	label: <String>,
+	action: <Function>,
+	shortcut: <Shortcut> (optional),
+	condition: <Function> (optional)
 }
 ```
 
-</p>
-</details>
+- **showInCanvasMenu (optional)** (`Boolean`): Show command in the canvas right click menu. Default: `false`
+  <img src="images/canvasMenu.jpg" width="400">
+
+- **showInSelectionMenu (optional)** (`Boolean`): Show command in the selection right click menu. Default: `false`
+  <img src="images/selectionMenu.png" width="600">
+- **hideInMainMenu (optional)** (`Boolean`): Hide the command in the Figma Plus plugins menu. Use this in combination with `showInCanvasMenu` or `showInSelectionMenu` to create commands that only show in the canvas or selection right click menus. Default: `false`
 
 <!-- prettier-ignore -->
 ```javascript
-// Example code for creating a simple  Plugins menu item:
-figmaPlus.createPluginsMenuItem(
-	'Hello world!',
-	() => alert('Hello world!')
-);
+// Example code for creating a simple plugin command:
+figmaPlus.addCommand({
+	label: 'Hello world!',
+	action: () => alert('Hello world!')
+});
 
-// Example code for creating a simple Plugins menu item with sub-menu:
-figmaPlus.createPluginsMenuItem(
-	'Hello world!',
-	null,
-	null,
-	null,
-	[
-		{
-			itemLabel: 'Hello',
-			triggerFunction: () => alert('Hello')
+// Example code for creating a plugin command with a keyboard shortcut:
+figmaPlus.addCommand({
+	label: 'Hello world!',
+	action: () => alert('Hello world!'),
+	shortcut: {
+		mac: {
+			shift: true,
+			command: true,
+			key: 'O'
 		},
-		{
-			itemLabel: 'World',
-			triggerFunction: () => alert('World')
+		windows: {
+			control: true,
+			shift: true,
+			key: 'O'
 		}
-	]
-);
-```
-
-## createContextMenuItem
-
-Create an item in a specific context menu. Here are the supported menu types (Click to see image):
-
-<details>
-	<summary><b>Canvas</b></summary>
-	<img src="images/canvasMenu.jpg" width="400">
-
-<!-- prettier-ignore -->
-```javascript
-figmaPlus.createContextMenuItem.Canvas(
-	itemLabel,
-	triggerFunction,
-	condition,
-	shortcut,
-	submenuItems
-);
-```
-
-</details>
-
-<details>
-	<summary><b>Selection</b></summary>
-	<img src="images/selectionMenu.png" width="600">
-
-<!-- prettier-ignore -->
-```javascript
-figmaPlus.createContextMenuItem.Selection(
-	itemLabel,
-	triggerFunction,
-	condition,
-	shortcut,
-	submenuItems
-);
-```
-
-</details>
-
-<details>
-	<summary><b>Page</b></summary>
-	<img src="images/pageMenu.jpg" width="500">
-
-<!-- prettier-ignore -->
-```javascript
-figmaPlus.createContextMenuItem.Page(
-	itemLabel,
-	triggerFunction,
-	condition,
-	shortcut,
-	submenuItems
-);
-```
-
-</details>
-
-<details>
-	<summary><b>Filename</b></summary>
-	<img src="images/filenameMenu.jpg" width="350">
-
-<!-- prettier-ignore -->
-```javascript
-figmaPlus.createContextMenuItem.Filename(
-	itemLabel,
-	triggerFunction,
-	condition,
-	shortcut,
-	submenuItems
-);
-```
-
-</details>
-
-<details>
-	<summary><b>Version</b></summary>
-	<img src="images/versionMenu.jpg" width="300">
-
-<!-- prettier-ignore -->
-```javascript
-figmaPlus.createContextMenuItem.Version(
-	itemLabel,
-	triggerFunction,
-	condition,
-	shortcut,
-	submenuItems
-);
-```
-
-</details>
-
-<details>
-	<summary><b>File</b></summary>
-	<img src="images/fileMenu.jpg" width="450">
-
-<!-- prettier-ignore -->
-```javascript
-figmaPlus.createContextMenuItem.File(
-	itemLabel,
-	triggerFunction,
-	condition,
-	shortcut,
-	submenuItems
-);
-```
-
-</details>
-
-Use `figmaPlus.createContextMenuItem.` + **Menu Type** to create an item in the given type of menu.
-
-For example, to create a Canvas menu item:
-
-<!-- prettier-ignore -->
-```javascript
-figmaPlus.createContextMenuItem.Canvas(
-	itemLabel,
-	triggerFunction,
-	condition,
-	shortcut,
-	submenuItems
-);
-```
-
-- **itemLabel** (`String`): The label of the menu item to be added.
-- **triggerFunction** (`Function`): The function to trigger when the menu item is clicked. If there are sub-menus, this trigger function will not be runned on click.
-- **condition (optional)** (`Function`): Condition that needs to pass for the item to show in the menu. Menu item will only show when this condition function returns `true`. Pass `null` if no condition is needed. Default: `true`
-- **shortcut (optional)** (`Shortcut`): Pass in a keyboard shortcut object to show it alongside the label. Remember to use `createKeyboardShortcut` to actually attach the command to a keyboard shortcut event. Pass `null` if no shortcut is needed to be displayed.
-
-<details><summary>Click to see the Shortcut object format</summary>
-<p>
-
-```
-{
-	mac : {
-		control: <boolean>,
-		option: <boolean>,
-		shift: <boolean>,
-		command: <boolean>,
-		key: <String>
-	},
-	windows: {
-		control: <boolean>,
-		alt: <boolean>,
-		shift: <boolean>,
-		key: <String>
 	}
-}
-```
+});
 
-</p>
-</details>
-
-- **submenuItems (optional)** (`Array`): Pass in an array of `submenuItem` objects to create sub-menu items branching off the menu item. Pass `null` if no sub-menu is needed.
-
-<details><summary>Click to see the submenuItems object format</summary>
-<p>
-
-```
-{
-	itemLabel: <String>,
-	triggerFunction: <Function>,
-	condition: <Function> (optional),
-	shortcut: <Shortcut> (optional)
-}
-```
-
-</p>
-</details>
-
-<!-- prettier-ignore -->
-```javascript
-// Example code for creating a simple Canvas menu item:
-figmaPlus.createContextMenuItem.Canvas(
-	'Hello world!',
-	() => alert('Hello world!')
-);
-
-// Example code for creating a simple Canvas menu item with sub-menu:
-figmaPlus.createContextMenuItem.Canvas(
-	'Hello world!',
-	null,
-	null,
-	null,
-	[
+// Example code for creating a plugin command with a sub-menu:
+figmaPlus.addCommand({
+	label: 'Hello world!',
+	action: () => alert('Hello world!'),
+	submenu: [
 		{
-			itemLabel: 'Hello',
-			triggerFunction: () => alert('Hello')
+			label: 'Hello',
+			action: () => alert('Hello')
 		},
 		{
-			itemLabel: 'World',
-			triggerFunction: () => alert('World')
+			label: 'World',
+			action: () => alert('World')
 		}
 	]
-);
+});
 ```
 
-## createKeyboardShortcut
+## registerKeyboardShortcut
 
-Attach a function to a keyboard shortcut. Remember to include a shortcut hint in the Plugins menu/context menu item (See above).
+Attach an action function to a keyboard shortcut. This is only useful if the action you want to trigger is not in the command menu, otherwise passing a `Shortcut` object to `figmaPlus.addCommand` is a better way to add keyboard shortcuts to your actions.
 
 <!-- prettier-ignore -->
 ```javascript
-figmaPlus.createKeyboardShortcut(shortcut, triggerFunction, condition);
+figmaPlus.registerKeyboardShortcut({
+	shortcut,
+	action,
+	condition
+});
 ```
 
 - **shortcut** (`Shortcut`): An object defining the keyboard shortcut for both Mac and Windows.
 
-<details><summary>Click to see the Shortcut object format</summary>
-<p>
-
 ```
+// Shortcut object format
 {
 	mac : {
 		control: <boolean>,
@@ -320,16 +143,13 @@ figmaPlus.createKeyboardShortcut(shortcut, triggerFunction, condition);
 }
 ```
 
-</p>
-</details>
-
-- **triggerFunction** (`Function`): The function to trigger when the shortcut is pressed.
-- **condition (optional)** (`Funtion`): Condition that needs to pass for the shortcut to register. The triggerFunction will only run when this condition function returns `true`. Pass `null` if no condition is needed. Default: `true`
+- **action** (`Function`): Action to trigger when the keyboard shortcut is pressed.
+- **condition (optional)** (`Function`): Condition function that determines whether the keyboard shortcut will trigger the action. Actions will only run when the condition function returns `true` at the time the shortcut is pressed.
 
 ```javascript
 // Example code for creating a simple keyboard shortcut:
-figmaPlus.createKeyboardShortcut(
-	{
+figmaPlus.registerKeyboardShortcut({
+	shortcut: {
 		mac: {
 			command: true,
 			shift: true,
@@ -341,81 +161,104 @@ figmaPlus.createKeyboardShortcut(
 			key: 'H'
 		}
 	},
-	() => alert('Hello world!')
-);
+	action: () => alert('Hello world!')
+});
 ```
 
 ## showUI
 
-Show a Figma styled modal where you can attach your UI onto. Providing a `tabs` array would create a modal with tabs.
+Show a Figma styled modal where you can attach a UI onto, using either HTML, a React component or a Vue components.
 
-<img src="images/modal.jpg" width="400"> <img src="images/tabbedModal.jpg" width="400">
+<img src="images/modal.jpg" width="400">
 
 ```javascript
-figmaPlus.showUI(modalTitle, callback, width, height, positionX, positionY, overlay, includePadding, tabs);
+figmaPlus.showUI({
+	title,
+	html,
+	reactComponent,
+	vueComponent,
+	onMount,
+	width,
+	height,
+	positionX,
+	positionY,
+	overlay,
+	padding,
+	tabs
+});
+
+// Use only one of html, reactComponent or vueComponent.
 ```
 
-- **modalTitle** (`String`): The title to show on the modal header.
-- **callback** (`Function`): The callback function that returns after the modal is opened. `modalElement` is passed as an argument to allow UI attachment (See example below).
+- **title** (`String`): The title to show on the modal header.
+- **html (optional)** (`String`): HTML to render inside the modal. Use the `onMount` function to run scripts after the HTML is rendered.
+- **reactComponent (optional)** (`React Component`): Pass in a React component to render inside the modal.
+- **vueComponent (optional)** (`Vue Component`): Pass in a Vue component to render inside the modal.
+- **onMount (optional)** (`Function`): Function to run after the UI is loaded. The mounted element is passed into the function. Use this to interact with the elements created in your `html` string.
 - **width (optional)** (`Number`): Width of the modal in px. Default: `300`
-- **height (optional)** (`Number || String`): Height of the modal in px or 'auto' (Height of the inner elements). Default: `auto`
+- **height (optional)** (`Number || String`): Height of the modal in px or 'auto' (Height of the inner elements). Default: `"auto"`
 - **positionX (optional)** (`Number`): Horizontal position in % relative to the screen, ranges from 0 to 1. Default: `0.5` (Center of the screen)
 - **positionY (optional)** (`Number`): Vertical position in % relative to the screen, ranges from 0 to 1. Default: `0.5` (Center of the screen)
 - **overlay (optional)** (`Boolean`): Whether the modal has a dark overlay background. Default: `false`
-- **includePadding (optional)** (`Boolean`): Whether to include the default padding (`padding: 12px`) around the modal content. Default: `true`
-- **tabs (optional)** (`Array`): Array of tab titles in `String`. E.g. `['One', 'Two', 'Three']`
+- **padding (optional)** (`Boolean`): Whether to include the default padding (`padding: 16px 8px`) around the modal content. Default: `true`
+- **tabs (optional)** (`Array`): Pass in an array of `Tab` objects to render a modal with tabbed content.
+
+```
+// Tab object format
+{
+	title: <String>,
+	html: <String> (optional),
+	reactComponent: <React Component> (optional),
+	vueComponent: <Vue Component> (optional),
+	onMount: <Function> (optional)
+}
+```
+
+<img src="images/tabbedModal.jpg" width="400">
 
 <!-- prettier-ignore -->
 ```javascript
 // Attaching UI using pure HTML/Javascript
-figmaPlus.showUI(
-	'Hello world',
-	(modalElement) => {
-		const UI = document.createElement('div');
-		UI.innerHTML = '<h1>Hello world</h1>';
-		modalElement.parentNode.replaceChild(UI, modalElement);
+figmaPlus.showUI({
+	title: 'HTML Demo',
+	html: `<button>Click me</button>`,
+	onMount: modalContent => {
+		modalContent.firstChild.onclick = () => alert('You clicked me!');
 	}
-);
+});
 
-// Attaching UI using React (React and ReactDOM are available in figmaPlus.React and figmaPlus.ReactDOM)
-figmaPlus.showUI(
-	'Hello world',
-	(modalElement) => {
-		figmaPlus.ReactDOM.render('Hello, world!', modalElement);
+// Attaching UI using a React component
+// React and ReactDOM are available in figmaPlus.React and figmaPlus.ReactDOM)
+// You can also use JSX if babel is installed
+
+figmaPlus.showUI({
+	title: 'React Component Demo',
+	reactComponent: function Button() {
+		return (figmaPlus.React.createElement(
+			"button",
+			{ onClick: () => alert('You clicked me!') },
+			"Click me")
+		);
 	}
-);
+});
 
-// Attaching UI using Vue (Vue is available in figmaPlus.Vue)
-figmaPlus.showUI(
-	'Hello world',
-	(modalElement) => {
-		new figmaPlus.Vue({
-			el: modalElement,
-			template: `<h1>Hello world</h1>`
-		})
-	}
-);
+// Attaching UI using a Vue component
+// Vue is available in figmaPlus.Vue
+figmaPlus.showUI({
+	title: 'Vue Component Demo',
+	vueComponent: figmaPlus.Vue.component('demo-button', {
+		template: `<button @click="alert('You clicked me!')">Click me</button>`
+	})
+});
 
-// Attaching multiple UI screens to different tabs using Vue
-figmaPlus.showUI(
-	'Hello world',
-	(modalElement, modalElement2) => {
-		new figmaPlus.Vue({
-			el: modalElement,
-			template: `<h1>Content One</h1>`
-		})
-		new figmaPlus.Vue({
-			el: modalElement2,
-			template: `<h1>Content Two</h1>`
-		})
-	},
-	null,
-	null,
-	null,
-	null,
-	null,
-	['One', 'Two']
-);
+// Attaching UI to multiple tabs
+figmaPlus.showUI({
+	title: 'Tab Demo',
+	tabs: [
+		{title: 'Tab 1', html: `<h1>This is Tab 1</h1>`},
+		{title: 'Tab 2', html: `<h1>This is Tab 2</h1>`}
+	]
+});
 ```
 
 ## hideUI
@@ -435,11 +278,15 @@ Attach a hover tooltip to a DOM element in your UI.
 <img src="images/tooltip.png" width="400">
 
 ```javascript
-figmaPlus.addTooltip(element, tooltipText, showAfterDelay);
+figmaPlus.addTooltip({
+	element,
+	text,
+	showAfterDelay
+});
 ```
 
-- **element** (`DOMElement`): The DOM element to show the tooltip when hovered. E.g. an icon button.
-- **tooltipText** (`String`): The text to show in the tooltip.
+- **element** (`DOMElement`): The DOM element to show the tooltip on when hovered. E.g. an icon button.
+- **text** (`String`): The text to show in the tooltip.
 - **showAfterDelay (optional)** (`Boolean`): Whether to show the tooltip after a slight delay. If set to `false`, the tooltip will show immediately on hover. Default: `true`
 
 ## showToast
@@ -450,12 +297,12 @@ Show a notification message (Toast) at the bottom of the screen, with an optiona
 
 <!-- prettier-ignore -->
 ```javascript
-figmaPlus.showToast(
+figmaPlus.showToast({
 	message,
 	timeoutInSeconds,
 	buttonText,
 	buttonAction
-);
+});
 ```
 
 - **message** (`String`): Message to show in the toast.
@@ -466,10 +313,9 @@ figmaPlus.showToast(
 <!-- prettier-ignore -->
 ```javascript
 // Example code for showing the toast above:
-figmaPlus.showToast(
-	'Something happened in your plugin!',
-	3,
-	'Do something',
-	() => alert('You clicked the action button!')
-)
+figmaPlus.showToast({
+	message: 'Something happened in your plugin!',
+	buttonText: 'Do something',
+	buttonAction: () => alert('You clicked the action button!')
+});
 ```

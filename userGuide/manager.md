@@ -20,9 +20,9 @@ Clicking on a plugin will show its details.
 
 <img src="images/pluginDetails.png" width="450">
 
-To install the plugin, simply click **Install** and reload your page.
+To install the plugin, simply click **Install**.
 
-!> Installed plugins will run in the next page reload. If you have opened tabs on the desktop app, make sure to reload **all opened tabs** to see changes, or simply restart the app to do that quickly.
+!> Some plugins will only run in the next page reload. If you have opened tabs on the desktop app, make sure to reload **all opened tabs** to see changes, or simply restart the app to do that quickly.
 
 ## Uninstalling Plugins
 
