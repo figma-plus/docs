@@ -43,12 +43,8 @@ Here's an example:
 - **images**: Array of URL's to your plugin's screenshot. URL's can either be full addresses or relative path from the Github project's root (E.g. `screenshot/preview.png`).
 - **js**: Array of paths to your js files relative to your Github project's root.
 - **css**: Array of paths to your css files relative to your Github project's root.
-
-Optional keys:
-
-- **webOnly** (`Boolean`): Set this to `true` to hide this plugin on the desktop app.
-- **requiredOrgId** (`String`): ID of the Org that you want the plugin to only show in. Users outside of this Org will not see this plugin. You can get your current Org's ID by running `figmaPlus.getMyOrg()`.
-- **requiredTeamIds** (`Array of Strings`): Array of the teams that you want the plugin to only show in. Users outside of these teams will not see this plugin. You can get your teams' IDs by running `figmaPlus.getMyTeams()`.
+- **requiredOrgId (optional)** (`String`): ID of the Org that you want the plugin to only show in. Users outside of this Org will not see this plugin. You can get your current Org's ID from `figmaPlus.myOrg`.
+- **requiredTeamIds (optional)** (`Array of Strings`): Array of the teams that you want the plugin to only show in. Users outside of these teams will not see this plugin. You can get your teams' IDs from `figmaPlus.myTeams`.
 
 </p>
 </details>

@@ -60,7 +60,7 @@ figmaPlus.addCommand({
 ```
 
 - **showInCanvasMenu (optional)** (`Boolean`): Show command in the canvas right click menu. Default: `false`
-  <img src="images/canvasMenu.jpg" width="400">
+  <img src="images/canvasMenu.png" width="250">
 
 - **showInSelectionMenu (optional)** (`Boolean`): Show command in the selection right click menu. Default: `false`
   <img src="images/selectionMenu.png" width="600">
@@ -169,7 +169,7 @@ figmaPlus.registerKeyboardShortcut({
 
 Show a Figma styled modal where you can attach a UI onto, using either HTML, a React component or a Vue components.
 
-<img src="images/modal.jpg" width="400">
+<img src="images/modal.png" width="400">
 
 ```javascript
 figmaPlus.showUI({
@@ -184,6 +184,7 @@ figmaPlus.showUI({
 	positionY,
 	overlay,
 	padding,
+	useFigmaStyles,
 	tabs
 });
 
@@ -201,7 +202,8 @@ figmaPlus.showUI({
 - **positionY (optional)** (`Number`): Vertical position in % relative to the screen, ranges from 0 to 1. Default: `0.5` (Center of the screen)
 - **overlay (optional)** (`Boolean`): Whether the modal has a dark overlay background. Default: `false`
 - **padding (optional)** (`Boolean`): Whether to include the default padding (`padding: 16px 8px`) around the modal content. Default: `true`
-- **tabs (optional)** (`Array`): Pass in an array of `Tab` objects to render a modal with tabbed content.
+- **useFigmaStyles (optional)** (`Boolean`): Set this to `false` to remove all Figma control styling in the content area. Default: `true`
+- **tabs (optional)** (`Array`): Pass in an array of `Tab` objects to render a modal with tabbed content. Note that if you use `tabs`, the `html`, `reactComponent`, `vueComponent` and `onMount` properties **outside** of the `tabs` array will be ignored.
 
 ```
 // Tab object format
@@ -214,7 +216,7 @@ figmaPlus.showUI({
 }
 ```
 
-<img src="images/tabbedModal.jpg" width="400">
+<img src="images/tabbedModal.png" width="400">
 
 <!-- prettier-ignore -->
 ```javascript
@@ -293,7 +295,7 @@ figmaPlus.addTooltip({
 
 Show a notification message (Toast) at the bottom of the screen, with an optional action button.
 
-<img src="images/toast.jpg" width="400">
+<img src="images/toast.png" width="400">
 
 <!-- prettier-ignore -->
 ```javascript

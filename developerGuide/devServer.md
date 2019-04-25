@@ -34,4 +34,4 @@ Select the **Developer** tab from the plugin manager, and enter information abou
 - **Javascript Files**: Add the paths to your `.js` files on your server. Note that the files are loaded in the displayed order, make sure to enter the paths in the order the files should load in.
 - **CSS Files**: Add the paths to your `.css` files if there are any.
 
-When you are done, click **Connect** and refresh your page to run your plugin.
+When you are done, click **Connect** to start running your plugin. As long as you are connected, you plugin scripts will run on every time your page loads.

@@ -38,29 +38,36 @@ Open the plugin manager to see a new Developer tab.
 </p>
 </details>
 
-## Script Runner
+## Run Script
 
-<img src="images/scriptRunner.png" width="600">
+<img src="images/scriptRunnerCommand.png" width="400">
 
-To run plugin scripts without setting up a developer environment, open **Script Runner** from the Developer tab and edit your code inside the text box. You can run any Javascript code using the script runner. But for this guide, let's stick with the default demo code:
+<img src="images/scriptRunner.png" width="500">
+
+Once you have Developer mode enabled, open the **Run Script** modal from the Figma Plus menu. You may run any Javascript code in this code editor. But for the purpose of this guide, let's stick with the default demo code:
 
 <!-- prettier-ignore -->
 ```javascript
-figmaPlus.createPluginsMenuItem(				// Create a menu item in the Figma Plus menu.
-	'Hello world!',							// Set the menu item's label to "Hello world!"
-	() => figmaPlus.showToast('Hello world!')	// When the item is clicked, show a toast that says "Hello world!"
-);
+figmaPlus.showToast({message: 'Hello world!'})
 ```
 
-Hit **Refresh and Run** to run your script after the page refreshes.
+Hit **Run** to see a toast pop up at the bottom of your screen.
 
-You will find a new menu item inside the **Figma Plus** menu called **Hello world!**.
+<img src="images/helloWorldToast.png" width="250">
 
-<img src="images/helloWorld.png" width="400">
+Now let's try adding a command to the Figma Plus menu:
 
-Click to see a toast pop up at the bottom of your screen.
+<!-- prettier-ignore -->
+```javascript
+figmaPlus.addCommand({
+	label: "Hello world",
+	action: () => figmaPlus.showToast({message: 'Hello world!'})
+})
+```
 
-<img src="images/helloWorldToast.jpg" width="200">
+Hit **Run** and you will find a new command inside the **Figma Plus** menu called **Hello world**.
+
+<img src="images/helloWorldCommand.png" width="400">
 
 Congratulations! You have created your first Figma Plus plugin!
 
