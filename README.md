@@ -3,7 +3,7 @@
 <p align="center"> Discover and install 3rd party plugins for Figma </p>
 
 <p align="center">
-<img width='380' src="images/managerModal.png" />
+<img width='380' src="images/pluginsList.png" />
 </p>
 
 ### Features
@@ -32,7 +32,7 @@ We hope to create a friendly community of users and developers building extensio
 
 #### Is it safe to run Figma Plus?
 
-Security is our top priority in the development of Figma Plus. Our code does not perform any destructive actions to your Figma documents, nor does it contain any tracking or analytics scripts that expose your private information to third parties. Our code is open source and can be audited on [Github](https://github.com/figma-plus).
+Security is our top priority in the development of Figma Plus. Our code does not perform any destructive actions to your Figma documents, nor does it contain any tracking scripts that expose your private information to third parties. We only collect anonymous data on which plugins are currently installed to be used for statistics. Our code is open source and can be audited on [Github](https://github.com/figma-plus).
 
 We also review every plugin and their updates for security threats before approving them to be available on our platform.
 
@@ -42,14 +42,14 @@ We also review every plugin and their updates for security threats before approv
 
 #### What will happen to Figma Plus when Figma's official extensibility support arrives?
 
-We are well aware of the extension platform that Figma is working on, as announced in [this article](https://www.figma.com/blog/figma-series-c/#the-future). However we believe both systems can coexist as there will undoubtedly be limitations from the official implementation that only Figma Plus can unlock.
+We are well aware of the extension platform that Figma is working on, as announced in [this article](https://www.figma.com/blog/figma-series-c/#the-future). However we believe both systems can coexist as there will definitely be limitations from the official implementation that only Figma Plus can unlock.
 
-An example would be any custom modifications to the Figma app UI, which can make for better plugin experiences but will very unlikely to be supported by the Figma team.
+An example would be any custom modifications to the Figma app UI, which can make for more integrated plugin experiences but will very unlikely be supported by the Figma team.
 
 #### If I start building plugins for Figma Plus, will I have to rebuild them when the official extensibility becomes available?
 
 The short answer is yes, but the migration process will not be difficult.
 
-We cannot talk about what we know about Figma's extensibility platform, but our [developer API](api/scene) will follow the official extension API syntaxes as much as possible. This ensures transitioning between the two API's will be simple and straightforward.
+When the official plugin API is ready for the public, we will try our best to align to their syntaxes as much as possible. This ensures transitioning between the two API's will be simple and straightforward.
 
 We encourage developers to start building and experimenting with Figma Plus and decide whether to migrate to the official implementation when it becomes available.

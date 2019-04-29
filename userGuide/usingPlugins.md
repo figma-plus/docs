@@ -10,58 +10,17 @@ All plugins are recommended to have at least an item shown in the hamburger -> *
 
 !> Some plugin actions only show when the right conditions are met. For example, an action that applies to selected items will only show when you have selected at least one item in the canvas.
 
-## Context Menus
+## Canvas Menu
 
-Some plugins have actions that are contextual to specific items, these actions are usually hosted inside the item's context menu. There are many types of context menus in Figma (Click to learn more):
+Right clicking on the canvas area opens the Canvas Menu. Plugins can optionally be added to this menu as a shortcut if they are frequently used.
 
-<details>
-	<summary><b>Canvas</b></summary>
-	<p>Canvas menu is suitable for global or general actions that are not specific to the selected objects.</p>
+<img src="images/canvasMenu.png" width="250">
 
-  <img src="images/canvasMenu.jpg" width="300">
+## Selection Menu
 
-</details>
+Right clicking on selected objects in the canvas or the layers pane opens the Selection Menu. Plugins can use this menu to add contextual commands that apply to the selection.
 
-<details>
-	<summary><b>Selection</b></summary>
-
-  <p>Selection menu is suitable for actions specific to the selected objects. Plugins are shown inside a Figma Plus submenu to make them more manageable.</p>
-
-  <img src="images/selectionMenu.png" width="500">
-
-</details>
-
-<details>
-	<summary><b>Page</b></summary>
-
-<p>Page menu is suitable for actions specific to a page.</p>
-
-<img src="images/pageMenu.jpg" width="400">
-</details>
-
-<details>
-	<summary><b>Filename</b></summary>
-
-<p>This is the menu that shows up when clicking on chevron next to the file name at the top. It is best used for actions specific to the current file.</p>
-
-<img src="images/filenameMenu.jpg" width="300">
-</details>
-
-<details>
-	<summary><b>Version</b></summary>
-
-<p>Version menu is suitable for actions specific to a version in the versions pane.</p>
-
-<img src="images/versionMenu.jpg" width="300">
-</details>
-
-<details>
-	<summary><b>File</b></summary>
-
-<p>This is the menu that shows up when right clicking on a file in the file browser. It is best used for actions specific to the selected file.</p>
-
-<img src="images/fileMenu.jpg" width="450">
-</details>
+<img src="images/selectionMenu.png" width="600">
 
 ## Modals
 
@@ -71,6 +30,6 @@ Plugins that require more interactions can open a modal to show additional UI.
 
 ## Custom UI
 
-Some plugins benefit from having custom UI integrated into the Figma interface. (We do not support this in our developer API but we don't limit this approach)
+Some plugins benefit from having custom UI integrated into the Figma interface.
 
 <img src="images/arabic.gif" width="500">
