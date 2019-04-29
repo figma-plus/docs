@@ -37,10 +37,10 @@ Zoom the canvas to an array of nodes.
 
 ```javascript
 // Zoom in by an array of node object
-figmaPlus.scrollAndZoomIntoView([node]);
+figmaPlus.viewport.scrollAndZoomIntoView([node]);
 
 // Zoom in by an array of node ID's
-figmaPlus.scrollAndZoomIntoView([nodeId]);
+figmaPlus.viewport.scrollAndZoomIntoView([nodeId]);
 ```
 
 - **node** (`Node`): See [Node object](api/nodes#node-object).
@@ -52,10 +52,10 @@ Pan the canvas to a node while keeping the current zoom level.
 
 ```javascript
 // Pan to a node by its node object
-figmaPlus.zoomToNode(node);
+figmaPlus.viewport.panToNode(node);
 
 // Pan to a node by its node ID's
-figmaPlus.zoomToNode(nodeId);
+figmaPlus.viewport.panToNode(nodeId);
 ```
 
 - **node** (`Node`): See [Node object](api/nodes#node-object).

@@ -59,35 +59,60 @@ setFontSizes();
 
 Please refer to [Figma's API documentation](https://www.figma.com/developers/docs#node-types) for more information on node properties.
 
-### getAllDescendents
+### findAll
 
-Run this function on a node to get an array of all descendents (children, grandchildren, etc.) of a node with children. This is useful for iterating over all nodes inside a subtree without recursion.
+Find descendents (children, grandchildren, etc.) of a node in which the `callback` function returns true. If `callback` is not provided, this will returns all descendents of the parent node. This is useful for iterating over all nodes inside a subtree without recursion.
 
 ```javascript
-node.getAllDescendents();
+node.findAll(callback);
 ```
 
-### export
+- **callback (optional)** (`Function`): Function to test each child node against.
+
+```javascript
+// Return all descendent nodes of a parent node:
+node.findAll();
+
+// Return all text denscendent nodes of a parent node:
+node.findAll(node => node.type === 'TEXT');
+```
+
+### findOne
+
+Find the first descendent (children, grandchildren, etc.) of a node in which the `callback` function returns true. If no results are found, it will return `null`.
+
+```javascript
+node.findOne(callback);
+```
+
+- **callback** (`Function`): Function to test each child node against.
+
+```javascript
+// Find the first descendent of a node named 'Button'
+node.findOne(node => node.name === 'Button');
+```
+
+### exportAsync
 
 Run this function on a node to render it as an image. This returns a Promise of an object with `blob`, `buffer` and `url` which is the output of the image in different formats.
 
 ```javascript
-node.export(options);
+node.exportAsync(options);
 ```
 
 - **options (optional)** (`Object`): An object used to set the `format` and `contentsOnly` parameter. Currently only PNG format is supported. Default: `{ format: "PNG", contentsOnly: true }`
 
 ```javascript
 // Render a contents-only image of a node in PNG format :
-node.export();
+node.exportAsync();
 
 // Render a non-contents-only image of a node in PNG format :
-node.export({ format: 'PNG', contentsOnly: false });
+node.exportAsync({ format: 'PNG', contentsOnly: false });
 
 // Example code for showing an image of the selected node in a modal:
 async function displayNodeAsImage() {
 	const node = figmaPlus.currentPage.selection[0];
-	const url = await node.export().then(image => image.url);
+	const url = await node.exportAsync().then(image => image.url);
 	const image = await new Promise((resolve, reject) => {
 		const i = new Image();
 		i.onload = () => resolve(i);

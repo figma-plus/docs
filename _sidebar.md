@@ -18,6 +18,8 @@
 	* [Introduction](api/introduction)
 	* [UI Functions](api/ui)
 	* [Nodes](api/nodes)
+	* [Styles](api/styles)
+	* [Comments](api/comments)
 	* [Events](api/events)
 	* [Viewport](api/viewport)
 	* [Utilities](api/utilities)

@@ -10,15 +10,6 @@ Toggle showing node ID's in the layers panel.
 figmaPlus.toggleShowNodeId();
 ```
 
-## styles
-
-Get an array of local and published styles.
-
-```javascript
-figmaPlus.styles.local;
-figmaPlus.styles.published;
-```
-
 ## isDesktop
 
 Checks if Figma is running on the Desktop app. Returns a `boolean`.
