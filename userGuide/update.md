@@ -1,6 +1,6 @@
 # Updating Plugins
 
-Plugins are updated automatically when new versions are released and approved, so there is no need to check for updates manually.
+Plugins are updated automatically when new versions are released and approved, so there is no need to check for updates manually. (Updated plugins will only start running the next time you reload or open a new tab though)
 
 We'll show an update message and a badge in the File Browser when one of your plugins has been updated.
 
