@@ -10,9 +10,19 @@
 			content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
 		/>
 		<link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css" />
+		<link rel="stylesheet" href="https://cdn.plyr.io/3.5.4/plyr.css" />
 		<style>
 			.app-name-link img {
 				width: 160px;
+			}
+			.plyr--video.plyr--stopped .plyr__controls {
+				opacity: 0;
+				pointer-events: none;
+				transform: translateY(100%);
+			}
+			.plyr--video,
+			.plyr__poster {
+				background-color: #fff;
 			}
 		</style>
 	</head>
@@ -26,10 +36,13 @@
 				search: 'auto',
 				auto2top: true,
 				autoHeader: true,
-				logo: 'sidebar_logo.png'
+				logo: 'sidebar_logo.png',
+				executeScript: true
 			};
 		</script>
 		<script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
 		<script src="//unpkg.com/docsify/lib/plugins/search.min.js"></script>
+		<!-- <script src="//unpkg.com/docsify/lib/plugins/external-script.min.js"></script> -->
+		<script src="https://cdn.plyr.io/3.5.4/plyr.js"></script>
 	</body>
 </html>

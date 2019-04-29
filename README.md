@@ -2,9 +2,9 @@
 
 <p align="center"> Discover and install 3rd party plugins for Figma </p>
 
-<p align="center">
-<img width='380' src="images/pluginsList.png" />
-</p>
+<video poster="images/pluginsList.png" id="player" playsinline controls>
+<source src="/figmaPlus.mp4" type="video/mp4" />
+</video>
 
 ### Features
 
@@ -53,3 +53,8 @@ The short answer is yes, but the migration process will not be difficult.
 When the official plugin API is ready for the public, we will try our best to align to their syntaxes as much as possible. This ensures transitioning between the two API's will be simple and straightforward.
 
 We encourage developers to start building and experimenting with Figma Plus and decide whether to migrate to the official implementation when it becomes available.
+
+<script>
+	console.log(document.getElementById('player'));
+	const player = new Plyr('#player');
+</script>
