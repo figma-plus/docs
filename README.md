@@ -55,6 +55,5 @@ When the official plugin API is ready for the public, we will try our best to al
 We encourage developers to start building and experimenting with Figma Plus and decide whether to migrate to the official implementation when it becomes available.
 
 <script>
-	console.log(document.getElementById('player'));
 	const player = new Plyr('#player');
 </script>
