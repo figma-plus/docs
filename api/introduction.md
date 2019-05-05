@@ -2,7 +2,7 @@
 
 The Figma Plus API is available as a global variable `window.figmaPlus` (or simply `figmaPlus`) on every page after Figma Plus is installed.
 
-Here are some examples of what you can do with the API. You can copy and run them in the console to test it out.
+Here are some examples of what you can do with the API. You can copy and run the code in the console to test them out.
 
 ### Add a command to the Figma Plus menu
 
@@ -53,6 +53,12 @@ figmaPlus.currentPage.selection[0].getProperties().then(node => console.log(node
 
 ```javascript
 figmaPlus.currentPage.selection[0].getProperties().then(node => (node.width = 100));
+```
+
+## Get a list of local and library styles
+
+```javascript
+figmaPlus.styles;
 ```
 
 ## Show node ID's in the layers panel

@@ -1,7 +1,23 @@
 # Events
 
-You can use the following event listeners to trigger a function when the DOM changes.
-All events are captured by a mutation observer running in the background.
+You can use the following event listeners to trigger a function when the DOM changes. All events are captured by a mutation observer running in the background.
+
+Using events to track DOM changes is the primary way of attaching custom UI's to Figma. Here's an example of adding a red button next to the zoom controls in the top right:
+
+```javascript
+// When a file is loaded and the toolbar is visible
+figmaPlus.onFileLoaded(() => {
+	// Select the zoom button in the top right
+	const zoomButton = document.querySelector('[data-onboarding-key="zoom-menu"]');
+	// Create a red button to be injected
+	const redButton = document.createElement('div');
+	redButton.style.backgroundColor = 'red';
+	redButton.style.width = '40px';
+	redButton.style.height = '40px';
+	// Inject the red button next to the zoom button
+	zoomButton.parentNode.appendChild(redButton);
+});
+```
 
 ## onDomChanged
 

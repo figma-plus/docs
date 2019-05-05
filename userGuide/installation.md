@@ -18,7 +18,7 @@ Figma Plus is a free and non-profit project. We did not invest in getting code s
 
 ## Mac
 
-Right click on the Figma Plus app icon. And select **Open** from the menu.
+Right click on the Figma Plus app icon, then select **Open** from the menu.
 
 <img src="images/rightClick.png" width="300">
 
