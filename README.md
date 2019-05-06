@@ -9,11 +9,13 @@
 ### Features
 
 - One-click installation
+- Works on both Figma desktop apps on Windows and Mac, as well as on Chrome browser
 - Seamless integration with Figma's UI
 - Install & manage your favorite plugins
 - Plugins are auto-updated to the latest version
 - Plugins can be set private to specific Teams or Orgs
-- Build plugins using our [API](api/ui)
+- Developer mode
+- Build plugins easily using our [API](api/ui)
 
 ### Links
 
