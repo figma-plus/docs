@@ -88,7 +88,7 @@ figmaPlus.styles.findOne(callback);
 
 ```javascript
 // Find the first descendent of a node named 'Primary Color'
-figmaPlusstyles.findOne(style => style.name === 'Primary Color');
+figmaPlus.styles.findOne(style => style.name === 'Primary Color');
 ```
 
 ## getStyleById
